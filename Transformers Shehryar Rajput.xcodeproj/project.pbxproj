@@ -23,6 +23,9 @@
 		4650764128BAA38500C3E662 /* DefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650764028BAA38500C3E662 /* DefaultsHelper.swift */; };
 		4650764528BAA56500C3E662 /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650764428BAA56500C3E662 /* Networker.swift */; };
 		4650764728BAAD9900C3E662 /* VcNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650764628BAAD9900C3E662 /* VcNames.swift */; };
+		4650764928BAB1FA00C3E662 /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650764828BAB1FA00C3E662 /* HomepageViewController.swift */; };
+		4650764B28BAB44600C3E662 /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4650764A28BAB44600C3E662 /* Homepage.storyboard */; };
+		4650764F28BAB69500C3E662 /* CreateTransformerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650764E28BAB69500C3E662 /* CreateTransformerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		4650764028BAA38500C3E662 /* DefaultsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsHelper.swift; sourceTree = "<group>"; };
 		4650764428BAA56500C3E662 /* Networker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networker.swift; sourceTree = "<group>"; };
 		4650764628BAAD9900C3E662 /* VcNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VcNames.swift; sourceTree = "<group>"; };
+		4650764828BAB1FA00C3E662 /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
+		4650764A28BAB44600C3E662 /* Homepage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homepage.storyboard; sourceTree = "<group>"; };
+		4650764E28BAB69500C3E662 /* CreateTransformerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTransformerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,10 +123,12 @@
 				4650764328BAA43D00C3E662 /* App */,
 				4650764228BAA42900C3E662 /* Utilities */,
 				4650760828BA083600C3E662 /* LoginViewController.swift */,
+				4650764D28BAB5F900C3E662 /* Homepage VCs */,
 				4650763728BA160000C3E662 /* BattleChecker.swift */,
 				4650763928BA1CEC00C3E662 /* Transformer.swift */,
 				4650760D28BA083D00C3E662 /* Assets.xcassets */,
 				4650760A28BA083600C3E662 /* Main.storyboard */,
+				4650764A28BAB44600C3E662 /* Homepage.storyboard */,
 				4650760F28BA083D00C3E662 /* LaunchScreen.storyboard */,
 				4650761228BA083D00C3E662 /* Info.plist */,
 			);
@@ -163,6 +171,15 @@
 				4650760628BA083600C3E662 /* SceneDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		4650764D28BAB5F900C3E662 /* Homepage VCs */ = {
+			isa = PBXGroup;
+			children = (
+				4650764828BAB1FA00C3E662 /* HomepageViewController.swift */,
+				4650764E28BAB69500C3E662 /* CreateTransformerViewController.swift */,
+			);
+			path = "Homepage VCs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4650761128BA083D00C3E662 /* LaunchScreen.storyboard in Resources */,
+				4650764B28BAB44600C3E662 /* Homepage.storyboard in Resources */,
 				4650760E28BA083D00C3E662 /* Assets.xcassets in Resources */,
 				4650760C28BA083600C3E662 /* Main.storyboard in Resources */,
 			);
@@ -307,7 +325,9 @@
 				4650760528BA083600C3E662 /* AppDelegate.swift in Sources */,
 				4650760728BA083600C3E662 /* SceneDelegate.swift in Sources */,
 				4650764728BAAD9900C3E662 /* VcNames.swift in Sources */,
+				4650764928BAB1FA00C3E662 /* HomepageViewController.swift in Sources */,
 				4650764528BAA56500C3E662 /* Networker.swift in Sources */,
+				4650764F28BAB69500C3E662 /* CreateTransformerViewController.swift in Sources */,
 				4650763F28BAA37600C3E662 /* Orientation Locker.swift in Sources */,
 				4650763A28BA1CEC00C3E662 /* Transformer.swift in Sources */,
 				4650764128BAA38500C3E662 /* DefaultsHelper.swift in Sources */,

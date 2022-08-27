@@ -88,20 +88,75 @@
             </objects>
             <point key="canvasLocation" x="1036.231884057971" y="82.33695652173914"/>
         </scene>
-        <!--View Controller-->
+        <!--Homepage View Controller-->
         <scene sceneID="gS7-u4-SPP">
             <objects>
-                <viewController storyboardIdentifier="homepage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vp5-q9-BhK" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homepage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vp5-q9-BhK" customClass="HomepageViewController" customModule="Transformers_Shehryar_Rajput" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rY7-N8-Yoc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="es5-QY-coA">
+                                <rect key="frame" x="80" y="263" width="254" height="210"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vs-Nf-a85">
+                                        <rect key="frame" x="0.0" y="0.0" width="254" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="63v-Vl-ned"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Current Transfomers"/>
+                                        <connections>
+                                            <action selector="currentTransformers:" destination="vp5-q9-BhK" eventType="touchUpInside" id="LtJ-16-sTs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1b-OJ-e8p">
+                                        <rect key="frame" x="0.0" y="80" width="254" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="xPa-ar-dxP"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Create Transformer"/>
+                                        <connections>
+                                            <action selector="createTransformers:" destination="vp5-q9-BhK" eventType="touchUpInside" id="ITS-eo-MNC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0K-xY-hV1">
+                                        <rect key="frame" x="0.0" y="160" width="254" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="FBf-zf-CRp"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Start War"/>
+                                        <connections>
+                                            <action selector="startWar:" destination="vp5-q9-BhK" eventType="touchUpInside" id="NE9-AW-Df8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <variation key="heightClass=compact-widthClass=regular" axis="horizontal"/>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="mga-dS-eOQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mga-dS-eOQ" firstAttribute="trailing" secondItem="es5-QY-coA" secondAttribute="trailing" constant="80" id="5bV-zZ-St7"/>
+                            <constraint firstItem="es5-QY-coA" firstAttribute="centerX" secondItem="rY7-N8-Yoc" secondAttribute="centerX" id="O6Q-nZ-vHP"/>
+                            <constraint firstItem="es5-QY-coA" firstAttribute="leading" secondItem="mga-dS-eOQ" secondAttribute="leading" constant="80" id="lnT-gh-04K"/>
+                            <constraint firstItem="es5-QY-coA" firstAttribute="centerY" secondItem="rY7-N8-Yoc" secondAttribute="centerY" id="z7K-MZ-gaO"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="createTransformers" destination="h1b-OJ-e8p" id="LX2-L3-BQt"/>
+                        <outlet property="currentTransformers" destination="6vs-Nf-a85" id="tMo-vd-k2B"/>
+                        <outlet property="war" destination="v0K-xY-hV1" id="jBs-qT-4DM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qng-IR-Djs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1804" y="82"/>
+            <point key="canvasLocation" x="1888" y="82"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mKP-Oe-IqP">
@@ -133,6 +188,12 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
