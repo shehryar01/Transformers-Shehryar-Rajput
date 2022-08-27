@@ -71,4 +71,23 @@ struct BattleChecker {
         
     }
     
+    
+    /// Compares 2 transformers based on overall rating and finds and returns the victor if any
+    /// - Parameters:
+    ///   - transformer1: transformer you want to compare
+    ///   - transformer2: transformer you want to compare
+    /// - Returns: The transformer that wins the battle if any otherwise returns nil
+    func checkWhoWinsDueToOverallRating(transformer1: Transformer, transformer2: Transformer) -> Transformer? {
+        
+        let differenceInSkill = abs((transformer1.overallRating - transformer2.overallRating))
+        
+        guard differenceInSkill != 0 else {return nil} // tie, destroy both
+        
+        // figure out who wins
+        // if we're here we're certain someone wins because its not a tie
+        
+        return (transformer1.overallRating > transformer2.overallRating) ? transformer1 : transformer2
+        
+    }
+    
 }

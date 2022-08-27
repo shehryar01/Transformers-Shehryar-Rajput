@@ -25,6 +25,11 @@ class Transformer: Comparable {
     var team_icon: String
     var id: Int
     
+    var overallRating : Int {
+        strength + intelligence + speed + endurance + firepower
+    }
+    
+    
     init(team: String, name: String, strength: Int, intelligence: Int, speed: Int,
          endurance: Int,
          rank: Int,
