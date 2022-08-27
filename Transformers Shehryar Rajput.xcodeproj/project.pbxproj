@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4650760528BA083600C3E662 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650760428BA083600C3E662 /* AppDelegate.swift */; };
 		4650760728BA083600C3E662 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650760628BA083600C3E662 /* SceneDelegate.swift */; };
-		4650760928BA083600C3E662 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650760828BA083600C3E662 /* ViewController.swift */; };
+		4650760928BA083600C3E662 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650760828BA083600C3E662 /* LoginViewController.swift */; };
 		4650760C28BA083600C3E662 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4650760A28BA083600C3E662 /* Main.storyboard */; };
 		4650760E28BA083D00C3E662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4650760D28BA083D00C3E662 /* Assets.xcassets */; };
 		4650761128BA083D00C3E662 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4650760F28BA083D00C3E662 /* LaunchScreen.storyboard */; };
@@ -19,6 +19,10 @@
 		4650763828BA160000C3E662 /* BattleChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650763728BA160000C3E662 /* BattleChecker.swift */; };
 		4650763A28BA1CEC00C3E662 /* Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650763928BA1CEC00C3E662 /* Transformer.swift */; };
 		4650763D28BA488400C3E662 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4650763C28BA488400C3E662 /* Alamofire */; };
+		4650763F28BAA37600C3E662 /* Orientation Locker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650763E28BAA37500C3E662 /* Orientation Locker.swift */; };
+		4650764128BAA38500C3E662 /* DefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650764028BAA38500C3E662 /* DefaultsHelper.swift */; };
+		4650764528BAA56500C3E662 /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650764428BAA56500C3E662 /* Networker.swift */; };
+		4650764728BAAD9900C3E662 /* VcNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650764628BAAD9900C3E662 /* VcNames.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +46,7 @@
 		4650760128BA083600C3E662 /* Transformers Shehryar Rajput.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Transformers Shehryar Rajput.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4650760428BA083600C3E662 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4650760628BA083600C3E662 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4650760828BA083600C3E662 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4650760828BA083600C3E662 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4650760B28BA083600C3E662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4650760D28BA083D00C3E662 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4650761028BA083D00C3E662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +59,10 @@
 		4650763528BA100100C3E662 /* BattleCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleCheckerTests.swift; sourceTree = "<group>"; };
 		4650763728BA160000C3E662 /* BattleChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleChecker.swift; sourceTree = "<group>"; };
 		4650763928BA1CEC00C3E662 /* Transformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformer.swift; sourceTree = "<group>"; };
+		4650763E28BAA37500C3E662 /* Orientation Locker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Orientation Locker.swift"; sourceTree = "<group>"; };
+		4650764028BAA38500C3E662 /* DefaultsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultsHelper.swift; sourceTree = "<group>"; };
+		4650764428BAA56500C3E662 /* Networker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networker.swift; sourceTree = "<group>"; };
+		4650764628BAAD9900C3E662 /* VcNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VcNames.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,15 +114,15 @@
 		4650760328BA083600C3E662 /* Transformers Shehryar Rajput */ = {
 			isa = PBXGroup;
 			children = (
-				4650760428BA083600C3E662 /* AppDelegate.swift */,
-				4650760628BA083600C3E662 /* SceneDelegate.swift */,
-				4650760828BA083600C3E662 /* ViewController.swift */,
-				4650760A28BA083600C3E662 /* Main.storyboard */,
-				4650760D28BA083D00C3E662 /* Assets.xcassets */,
-				4650760F28BA083D00C3E662 /* LaunchScreen.storyboard */,
-				4650761228BA083D00C3E662 /* Info.plist */,
+				4650764328BAA43D00C3E662 /* App */,
+				4650764228BAA42900C3E662 /* Utilities */,
+				4650760828BA083600C3E662 /* LoginViewController.swift */,
 				4650763728BA160000C3E662 /* BattleChecker.swift */,
 				4650763928BA1CEC00C3E662 /* Transformer.swift */,
+				4650760D28BA083D00C3E662 /* Assets.xcassets */,
+				4650760A28BA083600C3E662 /* Main.storyboard */,
+				4650760F28BA083D00C3E662 /* LaunchScreen.storyboard */,
+				4650761228BA083D00C3E662 /* Info.plist */,
 			);
 			path = "Transformers Shehryar Rajput";
 			sourceTree = "<group>";
@@ -135,6 +143,26 @@
 				4650762728BA083D00C3E662 /* Transformers_Shehryar_RajputUITestsLaunchTests.swift */,
 			);
 			path = "Transformers Shehryar RajputUITests";
+			sourceTree = "<group>";
+		};
+		4650764228BAA42900C3E662 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4650764028BAA38500C3E662 /* DefaultsHelper.swift */,
+				4650763E28BAA37500C3E662 /* Orientation Locker.swift */,
+				4650764428BAA56500C3E662 /* Networker.swift */,
+				4650764628BAAD9900C3E662 /* VcNames.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		4650764328BAA43D00C3E662 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4650760428BA083600C3E662 /* AppDelegate.swift */,
+				4650760628BA083600C3E662 /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,10 +303,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4650760928BA083600C3E662 /* ViewController.swift in Sources */,
+				4650760928BA083600C3E662 /* LoginViewController.swift in Sources */,
 				4650760528BA083600C3E662 /* AppDelegate.swift in Sources */,
 				4650760728BA083600C3E662 /* SceneDelegate.swift in Sources */,
+				4650764728BAAD9900C3E662 /* VcNames.swift in Sources */,
+				4650764528BAA56500C3E662 /* Networker.swift in Sources */,
+				4650763F28BAA37600C3E662 /* Orientation Locker.swift in Sources */,
 				4650763A28BA1CEC00C3E662 /* Transformer.swift in Sources */,
+				4650764128BAA38500C3E662 /* DefaultsHelper.swift in Sources */,
 				4650763828BA160000C3E662 /* BattleChecker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
