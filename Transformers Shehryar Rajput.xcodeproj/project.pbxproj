@@ -13,9 +13,11 @@
 		4650760C28BA083600C3E662 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4650760A28BA083600C3E662 /* Main.storyboard */; };
 		4650760E28BA083D00C3E662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4650760D28BA083D00C3E662 /* Assets.xcassets */; };
 		4650761128BA083D00C3E662 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4650760F28BA083D00C3E662 /* LaunchScreen.storyboard */; };
-		4650761C28BA083D00C3E662 /* Transformers_Shehryar_RajputTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650761B28BA083D00C3E662 /* Transformers_Shehryar_RajputTests.swift */; };
 		4650762628BA083D00C3E662 /* Transformers_Shehryar_RajputUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650762528BA083D00C3E662 /* Transformers_Shehryar_RajputUITests.swift */; };
 		4650762828BA083D00C3E662 /* Transformers_Shehryar_RajputUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650762728BA083D00C3E662 /* Transformers_Shehryar_RajputUITestsLaunchTests.swift */; };
+		4650763628BA100100C3E662 /* BattleCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650763528BA100100C3E662 /* BattleCheckerTests.swift */; };
+		4650763828BA160000C3E662 /* BattleChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650763728BA160000C3E662 /* BattleChecker.swift */; };
+		4650763A28BA1CEC00C3E662 /* Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650763928BA1CEC00C3E662 /* Transformer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,10 +47,13 @@
 		4650761028BA083D00C3E662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4650761228BA083D00C3E662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4650761728BA083D00C3E662 /* Transformers Shehryar RajputTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Transformers Shehryar RajputTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		4650761B28BA083D00C3E662 /* Transformers_Shehryar_RajputTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformers_Shehryar_RajputTests.swift; sourceTree = "<group>"; };
 		4650762128BA083D00C3E662 /* Transformers Shehryar RajputUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Transformers Shehryar RajputUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4650762528BA083D00C3E662 /* Transformers_Shehryar_RajputUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformers_Shehryar_RajputUITests.swift; sourceTree = "<group>"; };
 		4650762728BA083D00C3E662 /* Transformers_Shehryar_RajputUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformers_Shehryar_RajputUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4650763428BA100000C3E662 /* Transformers Shehryar RajputTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Transformers Shehryar RajputTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		4650763528BA100100C3E662 /* BattleCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleCheckerTests.swift; sourceTree = "<group>"; };
+		4650763728BA160000C3E662 /* BattleChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleChecker.swift; sourceTree = "<group>"; };
+		4650763928BA1CEC00C3E662 /* Transformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +111,8 @@
 				4650760D28BA083D00C3E662 /* Assets.xcassets */,
 				4650760F28BA083D00C3E662 /* LaunchScreen.storyboard */,
 				4650761228BA083D00C3E662 /* Info.plist */,
+				4650763728BA160000C3E662 /* BattleChecker.swift */,
+				4650763928BA1CEC00C3E662 /* Transformer.swift */,
 			);
 			path = "Transformers Shehryar Rajput";
 			sourceTree = "<group>";
@@ -113,7 +120,8 @@
 		4650761A28BA083D00C3E662 /* Transformers Shehryar RajputTests */ = {
 			isa = PBXGroup;
 			children = (
-				4650761B28BA083D00C3E662 /* Transformers_Shehryar_RajputTests.swift */,
+				4650763528BA100100C3E662 /* BattleCheckerTests.swift */,
+				4650763428BA100000C3E662 /* Transformers Shehryar RajputTests-Bridging-Header.h */,
 			);
 			path = "Transformers Shehryar RajputTests";
 			sourceTree = "<group>";
@@ -198,6 +206,7 @@
 					};
 					4650761628BA083D00C3E662 = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
 						TestTargetID = 4650760028BA083600C3E662;
 					};
 					4650762028BA083D00C3E662 = {
@@ -261,6 +270,8 @@
 				4650760928BA083600C3E662 /* ViewController.swift in Sources */,
 				4650760528BA083600C3E662 /* AppDelegate.swift in Sources */,
 				4650760728BA083600C3E662 /* SceneDelegate.swift in Sources */,
+				4650763A28BA1CEC00C3E662 /* Transformer.swift in Sources */,
+				4650763828BA160000C3E662 /* BattleChecker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4650761C28BA083D00C3E662 /* Transformers_Shehryar_RajputTests.swift in Sources */,
+				4650763628BA100100C3E662 /* BattleCheckerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,7 +456,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -474,7 +485,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -493,15 +504,23 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SZ74LKYQ6B;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "shehryar.rajput.Transformers-Shehryar-RajputTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Transformers Shehryar RajputTests/Transformers Shehryar RajputTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Transformers Shehryar Rajput.app/Transformers Shehryar Rajput";
@@ -513,15 +532,22 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SZ74LKYQ6B;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "shehryar.rajput.Transformers-Shehryar-RajputTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Transformers Shehryar RajputTests/Transformers Shehryar RajputTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Transformers Shehryar Rajput.app/Transformers Shehryar Rajput";
