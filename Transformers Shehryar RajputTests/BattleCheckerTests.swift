@@ -102,7 +102,44 @@ class BattleCheckerTests: XCTestCase {
         XCTAssertEqual(checker.doesOpponentRunAwayDueToStrength(transformer1: t4, transformer2: t8), t8)
         XCTAssertEqual(checker.doesOpponentRunAwayDueToStrength(transformer1: t8, transformer2: t2), nil)
         XCTAssertEqual(checker.doesOpponentRunAwayDueToStrength(transformer1: t4, transformer2: t1), nil)
-
     }
 
+    
+    
+    func testOpponentWinsDueToSkill() {
+        
+        let checker = BattleChecker()
+        
+        let t1 = Transformer(team: "", name: "", strength: 10, intelligence: 10, speed: 10, endurance: 10, rank: 10, courage: 10, firepower: 10, skill: 7, team_icon: "icon", id: 1)
+        let t2 = Transformer(team: "", name: "", strength: 10, intelligence: 10, speed: 10, endurance: 10, rank: 10, courage: 10, firepower: 10, skill: 10, team_icon: "icon", id: 2)
+        
+        
+        XCTAssertEqual(checker.checkWhoWinsDueToSkill(transformer1: t1, transformer2: t2), t2)
+        
+        
+        let t3 = Transformer(team: "", name: "", strength: 10, intelligence: 10, speed: 10, endurance: 10, rank: 10, courage: 10, firepower: 10, skill: 10, team_icon: "icon", id: 1)
+        let t4 = Transformer(team: "", name: "", strength: 10, intelligence: 10, speed: 10, endurance: 10, rank: 10, courage: 10, firepower: 10, skill: 7, team_icon: "icon", id: 2)
+        
+        XCTAssertEqual(checker.checkWhoWinsDueToSkill(transformer1: t3, transformer2: t4), t3)
+        
+        XCTAssertEqual(checker.checkWhoWinsDueToSkill(transformer1: t3, transformer2: t2), nil)
+        
+        
+        
+        let t5 = Transformer(team: "", name: "", strength: 10, intelligence: 10, speed: 10, endurance: 10, rank: 10, courage: 10, firepower: 10, skill: 9, team_icon: "icon", id: 2)
+        let t6 = Transformer(team: "", name: "", strength: 10, intelligence: 10, speed: 10, endurance: 10, rank: 10, courage: 10, firepower: 10, skill: 8, team_icon: "icon", id: 2)
+        let t7 = Transformer(team: "", name: "", strength: 10, intelligence: 10, speed: 10, endurance: 10, rank: 10, courage: 10, firepower: 10, skill: 7, team_icon: "icon", id: 2)
+        let t8 = Transformer(team: "", name: "", strength: 10, intelligence: 10, speed: 10, endurance: 10, rank: 10, courage: 10, firepower: 10, skill: 6, team_icon: "icon", id: 2)
+        
+        
+        XCTAssertEqual(checker.checkWhoWinsDueToSkill(transformer1: t4, transformer2: t5), nil)
+        XCTAssertEqual(checker.checkWhoWinsDueToSkill(transformer1: t4, transformer2: t6), nil)
+        XCTAssertEqual(checker.checkWhoWinsDueToSkill(transformer1: t4, transformer2: t7), nil)
+        XCTAssertEqual(checker.checkWhoWinsDueToSkill(transformer1: t4, transformer2: t8), nil)
+        XCTAssertEqual(checker.checkWhoWinsDueToSkill(transformer1: t8, transformer2: t2), t2)
+        XCTAssertEqual(checker.checkWhoWinsDueToSkill(transformer1: t4, transformer2: t1), nil)
+    }
+    
+    
+    
 }
