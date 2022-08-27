@@ -9,4 +9,10 @@ import Foundation
 
 struct BattleChecker {
     
+    func sortByRank(transformers: [Transformer]) -> [Transformer] {
+        transformers.sorted(by: {$0.rank > $1.rank })
+    }
+    
+    
+    
 }
