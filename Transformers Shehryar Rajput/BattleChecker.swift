@@ -90,4 +90,36 @@ struct BattleChecker {
         
     }
     
+    func checkWhoWinsInAFight(transformer1: Transformer, transformer2: Transformer) -> Transformer? {
+        
+        
+        if doesOpponentRunAwayDueToCourage(transformer1: transformer1, transformer2: transformer2) ==
+            doesOpponentRunAwayDueToStrength(transformer1: transformer1, transformer2: transformer2),
+            
+            doesOpponentRunAwayDueToStrength(transformer1: transformer1, transformer2: transformer2) != nil &&
+            doesOpponentRunAwayDueToStrength(transformer1: transformer1, transformer2: transformer2) != nil { // check who runs away
+            
+            // someone ran away
+            
+            return doesOpponentRunAwayDueToStrength(transformer1: transformer1, transformer2: transformer2) == transformer1 ? transformer2 : transformer1
+            
+        }else if checkWhoWinsDueToSkill(transformer1: transformer1, transformer2: transformer2) != nil { // check skill
+            
+            return checkWhoWinsDueToSkill(transformer1: transformer1, transformer2: transformer2)
+            
+            
+        }else if checkWhoWinsDueToOverallRating(transformer1: transformer1, transformer2: transformer2) != nil { // check overall rating
+            
+            return checkWhoWinsDueToOverallRating(transformer1: transformer1, transformer2: transformer2)
+            
+            
+        }else {
+            
+            // draw - kill both            
+            
+            
+            return nil
+        }
+    }
+    
 }
