@@ -55,9 +55,9 @@ class Transformer: Comparable {
     }
     
     static func == (lhs: Transformer, rhs: Transformer) -> Bool {
-        lhs.rank == rhs.rank
+        lhs.rank == rhs.rank && lhs.courage == rhs.courage
     }
-    
+
     static func > (lhs: Transformer, rhs: Transformer) -> Bool {
         lhs.rank > rhs.rank
     }
