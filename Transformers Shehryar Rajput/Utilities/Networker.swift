@@ -34,6 +34,113 @@ class Networker {
             }
     }
     
+    // MARK: - Creating transformer
+    
+    func createJSONtoMakeTransformer(name: String,
+                                     team: String,
+                                     strength: String,
+                                     intelligence: String,
+                                     speed: String,
+                                     endurance: String,
+                                     rank: String,
+                                     courage: String,
+                                     firepower: String,
+                                     skill: String) -> [String: AnyHashable]
+    {
+        let body : [String: AnyHashable] = [
+
+            "id" : 0,
+            "name": name,
+            "team": team,
+            "strength": Int(strength),
+            "intelligence": Int(intelligence),
+            "speed": Int(speed),
+            "endurance": Int(endurance),
+            "rank": Int(rank),
+            "courage": Int(courage),
+            "firepower": Int(firepower),
+            "skill": Int(skill),
+        ]
+
+//        let body = [String : AnyHashable] = [
+//              "id": Int(id) ?? 0,
+//              "name": name,
+//              "team": team,
+//              "strength": Int(strength) ?? 0,
+//              "intelligence": Int(intelligence) ?? 0,
+//              "speed": Int(speed) ?? 0,
+//              "endurance": Int(endurance) ?? 0,
+//              "rank": Int(rank) ?? 0,
+//              "courage": Int(courage) ?? 0,
+//              "firepower": Int(firepower) ?? 0,
+//              "skill": Int(skill) ?? 0,
+//        ]
+        return body
+    }
+    
+    func createATransformer(transformer jsonData: [String: AnyHashable], completion: @escaping (Bool)->()) {
+        
+
+        
+        AF.request("https://transformers-api.firebaseapp.com/transformers", method: .post, parameters: jsonData,encoding: JSONEncoding.default,headers: [.authorization(bearerToken: DefaultsHelper.shared.retrieveValue(keyForSavedValue: "token", savedValueType: .String) as? String ?? String())]) {$0.timeoutInterval = 5}
+        .response { response in
+            
+            print(response.debugDescription)
+            
+            let code = String(response.response?.statusCode ?? 0)
+            let char = code.first ?? "0"
+            
+            if char == "2" {completion(true)}else {completion(false)}
+
+        }
+        
+            
+    }
     
     
 }
+
+//struct jdm: Codable {
+//    let id: String
+//    init(id: String) {
+//        self.id = id
+//    }
+//}
+//
+//struct kkk: Codable {
+//                                let  id: String
+//                                let  name: String
+//                                let  team: String
+//                                let  strength: String
+//                                let  intelligence: String
+//                                let  speed: String
+//                                let  endurance: String
+//                                let  rank: String
+//                                let  courage: String
+//                                let  firepower: String
+//                                let  skill: String
+//    
+//                                init(id: String,
+//                                 name: String,
+//                                 team: String,
+//                                 strength: String,
+//                                 intelligence: String,
+//                                 speed: String,
+//                                 endurance: String,
+//                                 rank: String,
+//                                 courage: String,
+//                                 firepower: String,
+//                                     skill: String) {
+//                                    self. id: ,
+//                                    self. name: ,
+//                                    self. team: ,
+//                                    self. strength: ,
+//                                    self. intelligence: ,
+//                                    self. speed: ,
+//                                    self. endurance: ,
+//                                    self. rank: ,
+//                                    self. courage: ,
+//                                    self. firepower: ,
+//                                    self. skill:
+//                                }
+//}

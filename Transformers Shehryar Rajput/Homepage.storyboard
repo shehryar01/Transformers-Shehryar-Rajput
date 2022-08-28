@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,20 +14,10 @@
         <scene sceneID="s0d-6b-0kx">
             <objects>
                 <viewController storyboardIdentifier="createtransformers" title="Create A Transformer" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="CreateTransformerViewController" customModule="Transformers_Shehryar_Rajput" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="2fJ-hZ-tku">
-                                <rect key="frame" x="160" y="810" width="94" height="32"/>
-                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="dEm-Kl-isA"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="stepperPressed:" destination="Y6W-OH-hqX" eventType="valueChanged" id="MVr-7J-S2p"/>
-                                </connections>
-                            </stepper>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FDj-38-lvW">
                                 <rect key="frame" x="20" y="108" width="374" height="500"/>
                                 <subviews>
@@ -121,25 +112,74 @@
                                     </textField>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3h-vk-5Ii">
+                                <rect key="frame" x="20" y="762" width="374" height="50"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="shh-QG-g6n"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Create Transformer">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="createTransformer:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="U4s-YK-0Nm"/>
+                                </connections>
+                            </button>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="2fJ-hZ-tku">
+                                <rect key="frame" x="160" y="638" width="94" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bfk-OG-Zny"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="stepperPressed:" destination="Y6W-OH-hqX" eventType="valueChanged" id="MVr-7J-S2p"/>
+                                </connections>
+                            </stepper>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="vMX-be-O7i">
+                                <rect key="frame" x="20" y="698" width="374" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="oao-Zp-G2T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="2fJ-hZ-tku" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" constant="140" id="1ng-MR-uP7"/>
-                            <constraint firstItem="FDj-38-lvW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Ccf-YV-XKs"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="2fJ-hZ-tku" secondAttribute="trailing" constant="140" id="Ieh-pW-rfv"/>
-                            <constraint firstItem="FDj-38-lvW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="JtW-NI-bWd"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2fJ-hZ-tku" secondAttribute="bottom" constant="20" id="PVj-rW-Z0e"/>
-                            <constraint firstItem="FDj-38-lvW" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.558036" id="oFW-Wo-Kmz"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FDj-38-lvW" secondAttribute="trailing" constant="20" id="qfD-mT-QxM"/>
+                            <constraint firstItem="2fJ-hZ-tku" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="2vu-xf-7BF"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="vMX-be-O7i" secondAttribute="trailing" constant="20" id="FqC-21-CR8"/>
+                            <constraint firstItem="FDj-38-lvW" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.558036" id="LGa-6k-M85"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="V3h-vk-5Ii" secondAttribute="trailing" constant="20" id="NP1-Jl-duH"/>
+                            <constraint firstItem="FDj-38-lvW" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="Q6r-i8-tXV"/>
+                            <constraint firstItem="vMX-be-O7i" firstAttribute="top" secondItem="2fJ-hZ-tku" secondAttribute="bottom" constant="20" id="Ruk-2H-1cU"/>
+                            <constraint firstItem="V3h-vk-5Ii" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Zsn-Ut-zTG"/>
+                            <constraint firstItem="vMX-be-O7i" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="fLv-gh-TOR"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="FDj-38-lvW" secondAttribute="trailing" constant="20" id="gQK-9u-d9y"/>
+                            <constraint firstItem="2fJ-hZ-tku" firstAttribute="top" secondItem="FDj-38-lvW" secondAttribute="bottom" constant="30" id="w2b-z3-zTI"/>
+                            <constraint firstItem="FDj-38-lvW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="x27-S4-Nhs"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="V3h-vk-5Ii" secondAttribute="bottom" constant="50" id="xFe-GZ-z7R"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Create A Transformer" id="w7U-BB-zmg">
                         <barButtonItem key="backBarButtonItem" title="Home" id="Ltp-YU-PcN"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="courage" destination="E26-2t-YNb" id="fpn-il-6u7"/>
+                        <outlet property="createTransformer" destination="V3h-vk-5Ii" id="P3j-kF-uua"/>
+                        <outlet property="endurance" destination="dfc-NF-kTI" id="1yV-d6-QoZ"/>
+                        <outlet property="errorMessage" destination="vMX-be-O7i" id="cq4-Zv-HYx"/>
+                        <outlet property="firepower" destination="ADQ-QJ-64j" id="HA9-X2-U3o"/>
+                        <outlet property="intelligence" destination="wxh-pH-ViZ" id="mNz-nh-tNs"/>
+                        <outlet property="name" destination="yVe-VX-jRZ" id="Gtl-4T-TVo"/>
+                        <outlet property="rank" destination="KST-gs-xBg" id="C8R-Kt-p9z"/>
+                        <outlet property="skill" destination="ds0-M2-xZb" id="FGZ-hC-0SG"/>
+                        <outlet property="speed" destination="402-Rg-amw" id="rS9-oo-PXo"/>
                         <outlet property="stepper" destination="2fJ-hZ-tku" id="98e-V2-P1C"/>
                         <outlet property="strength" destination="e4s-vu-3rs" id="rHO-Sd-Qqf"/>
+                        <outlet property="team" destination="8VG-RG-CHX" id="dub-Jq-x3W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -166,11 +206,14 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
