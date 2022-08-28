@@ -275,16 +275,42 @@ class BattleCheckerTests: XCTestCase {
         
         XCTAssertEqual(checker.checkIfThereIsABoss(transformer1: t3, transformer2: t1), t1)
         XCTAssertEqual(checker.checkIfThereIsABoss(transformer1: t2, transformer2: t3), t2)
-
-        XCTAssertEqual(checker.checkIfThereIsABoss(transformer1: t1, transformer2: t1), nil) // same
-        XCTAssertEqual(checker.checkIfThereIsABoss(transformer1: t2, transformer2: t2), nil) // same
+//
+//        XCTAssertEqual(checker.checkIfThereIsABoss(transformer1: t1, transformer2: t1), nil) // same
+//        XCTAssertEqual(checker.checkIfThereIsABoss(transformer1: t2, transformer2: t2), nil) // same
+//
+//        XCTAssertEqual(checker.checkIfThereIsABoss(transformer1: t1, transformer2: t2), nil) // opp
+//        XCTAssertEqual(checker.checkIfThereIsABoss(transformer1: t2, transformer2: t1), nil) // opp
         
-        XCTAssertEqual(checker.checkIfThereIsABoss(transformer1: t1, transformer2: t2), nil) // opp
-        XCTAssertEqual(checker.checkIfThereIsABoss(transformer1: t2, transformer2: t1), nil) // opp
+        XCTAssertEqual(checker.checkIfThereIsABoss(transformer1: t3, transformer2: t3), nil) // no boss
+
 
 
     }
     
-    
-    
+    func testIfBothAreBoss() {
+        
+        
+        let checker = BattleChecker()
+
+        let t1 = Transformer(team: "", name: "Optimus Prime", strength: 1, intelligence: 1, speed: 1, endurance: 1, rank: 1, courage: 1, firepower: 1, skill: 1, team_icon: "icon", id: String(1))
+        let t2 = Transformer(team: "", name: "Predaking", strength: 1, intelligence: 1, speed: 1, endurance: 1, rank: 1, courage: 1, firepower: 1, skill: 1, team_icon: "icon", id: String(1))
+        
+        let t3 = Transformer(team: "", name: "crook", strength: 10, intelligence: 10, speed: 10, endurance: 10, rank: 10, courage: 10, firepower: 10, skill: 10, team_icon: "icon", id: String(1))
+
+
+        XCTAssertEqual(checker.checkIfBothAreBoss(transformer1: t1, transformer2: t1), true) // same
+        XCTAssertEqual(checker.checkIfBothAreBoss(transformer1: t2, transformer2: t2), true) // same
+        
+        XCTAssertEqual(checker.checkIfBothAreBoss(transformer1: t1, transformer2: t2), true) // opp
+        XCTAssertEqual(checker.checkIfBothAreBoss(transformer1: t2, transformer2: t1), true) // opp}
+
+        XCTAssertEqual(checker.checkIfBothAreBoss(transformer1: t3, transformer2: t1), false) // opp
+        XCTAssertEqual(checker.checkIfBothAreBoss(transformer1: t3, transformer2: t2), false) // opp}
+        XCTAssertEqual(checker.checkIfBothAreBoss(transformer1: t2, transformer2: t3), false) // opp}
+        XCTAssertEqual(checker.checkIfBothAreBoss(transformer1: t3, transformer2: t3), false) // opp}
+
+}
+
+
 }

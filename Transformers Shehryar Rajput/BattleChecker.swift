@@ -89,22 +89,66 @@ struct BattleChecker {
         return (transformer1.overallRating > transformer2.overallRating) ? transformer1 : transformer2
         
     }
+    /*
+     func checkIfThereIsABoss(transformer1: Transformer, transformer2: Transformer)->Transformer? {
+         
+         let optimus = "Optimus Prime"
+         let predaking = "Predaking"
+         
+         
+         
+         if transformer1.name == transformer2.name,
+            transformer1.name == optimus || transformer1.name == predaking { // same name boss
+             return nil
+
+         }else if        transformer1.name == optimus || transformer1.name == predaking && // opp name boss
+                         transformer2.name == optimus || transformer2.name == predaking {
+             return nil
+         }else if    transformer1.name == predaking ||
+                     transformer1.name == optimus { // 1 name boss
+             
+                 return transformer1
+             
+         }else if        transformer2.name == predaking ||
+                         transformer2.name == optimus { // 1 name boss
+             
+                         return transformer2
+             }else {
+                 return nil
+             }
+         
+         
+
+         
+     }
+     */
     
+    func checkIfBothAreBoss(transformer1: Transformer, transformer2: Transformer)->Bool {
+        
+        let optimus = "Optimus Prime"
+        let predaking = "Predaking"
+
+        if transformer1.name == transformer2.name ,
+           transformer1.name == optimus || transformer1.name == predaking { // same name boss
+            return true
+
+        }else if        transformer1.name == optimus || transformer1.name == predaking , // opp name boss
+                        transformer2.name == optimus || transformer2.name == predaking {
+            return true
+        }else {
+            return false
+        }
+    }
     func checkIfThereIsABoss(transformer1: Transformer, transformer2: Transformer)->Transformer? {
         
         let optimus = "Optimus Prime"
         let predaking = "Predaking"
         
         
+//        guard !checkIfBothAreBoss(transformer1: transformer1, transformer2: transformer2) else {return nil}
         
-        if transformer1.name == transformer2.name,
-           transformer1.name == optimus || transformer1.name == predaking { // same name boss
-            return nil
-
-        }else if        transformer1.name == optimus || transformer1.name == predaking , // opp name boss
-                        transformer2.name == optimus || transformer2.name == predaking {
-            return nil
-        }else if    transformer1.name == predaking ||
+        
+        if          transformer1.name == predaking ||
                     transformer1.name == optimus { // 1 name boss
             
                 return transformer1
@@ -112,7 +156,8 @@ struct BattleChecker {
         }else if        transformer2.name == predaking ||
                         transformer2.name == optimus { // 1 name boss
             
-                        return transformer2
+                return transformer2
+            
             }else {
                 return nil
             }
