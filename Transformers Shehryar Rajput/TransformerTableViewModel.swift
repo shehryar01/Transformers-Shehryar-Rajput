@@ -33,8 +33,8 @@ extension TransformerTableViewModelList {
 
 struct TransformerTableViewModel {
     
-   let transformer: Transformer
-   let teamImage: UIImage
+    let transformer: Transformer
+    let teamImage: UIImage
 }
 
 extension TransformerTableViewModel {
@@ -55,5 +55,32 @@ extension TransformerTableViewModel {
     }
     var id: String {
         transformer.id
+    }
+    var strength : String{
+        String(transformer.strength)
+        
+    }
+    var intelligence : String{
+        String(transformer.intelligence)
+        
+    }
+    var speed : String{
+        String(transformer.speed)
+        
+    }
+    var endurance : String{
+        String(transformer.endurance)
+        
+    }
+    var firepower : String {
+        String(transformer.firepower)
+        
+    }
+    var team: String {
+        transformer.team
+    }
+    
+    var name: String{
+        transformer.name
     }
 }

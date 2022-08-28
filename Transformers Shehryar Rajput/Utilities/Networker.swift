@@ -190,7 +190,22 @@ class Networker {
     }
     
     
-    
+    func updateTransformer(transformer jsonData: [String: AnyHashable], completion: @escaping (Bool)->()) {
+        
+        
+        
+        AF.request("https://transformers-api.firebaseapp.com/transformers", method: .put, parameters: jsonData,encoding: JSONEncoding.default,headers: [.authorization(bearerToken: DefaultsHelper.shared.retrieveValue(keyForSavedValue: "token", savedValueType: .String) as? String ?? String())]) {$0.timeoutInterval = 5}
+            .response { response in
+                
+                print(response.debugDescription)
+                
+                let code = String(response.response?.statusCode ?? 0)
+                let char = code.first ?? "0"
+                
+                if char == "2" {completion(true)}else {completion(false)}
+                
+            }
+    }
     
     
     

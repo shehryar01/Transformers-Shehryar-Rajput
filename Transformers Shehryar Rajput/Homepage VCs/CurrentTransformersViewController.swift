@@ -67,8 +67,65 @@ extension CurrentTransformersViewController: UITableViewDelegate, UITableViewDat
     }
     
     // MARK: - Swipe
-    func editTransformer()  {
+    func editTransformer(index: Int)  {
         print("asdsaasdsadasd")
+        
+        let ac = UIAlertController(title: "Enter Transformer", message: nil, preferredStyle: .alert)
+        ac.addTextField()//name
+        ac.addTextField()//team
+        ac.addTextField()//strength
+        ac.addTextField()//intelligence
+        ac.addTextField()//speed
+        ac.addTextField()//endurance
+        ac.addTextField()//rank
+        ac.addTextField()//courage
+        ac.addTextField()//firepower
+        ac.addTextField()//skill
+        
+        ac.textFields![0].placeholder = "name"
+        ac.textFields![1].placeholder = "team"
+        ac.textFields![2].placeholder = "strength"
+        ac.textFields![3].placeholder = "intelligence"
+        ac.textFields![4].placeholder = "speed"
+        ac.textFields![5].placeholder = "endurance"
+        ac.textFields![6].placeholder = "rank"
+        ac.textFields![7].placeholder = "courage"
+        ac.textFields![8].placeholder = "firepower"
+        ac.textFields![9].placeholder = "skill"
+        
+        let vm = transformersTableVM.transformers[index]
+
+        ac.textFields![0].text = String(vm.name)
+        ac.textFields![1].text = String(vm.team)
+        ac.textFields![2].text = String(vm.strength)
+        ac.textFields![3].text = String(vm.intelligence)
+        ac.textFields![4].text = String(vm.speed)
+        ac.textFields![5].text = String(vm.endurance)
+        ac.textFields![6].text = String(vm.rank)
+        ac.textFields![7].text = String(vm.courage)
+        ac.textFields![8].text = String(vm.firepower)
+        ac.textFields![9].text = String(vm.skill)
+        
+        
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { [unowned ac] _ in
+            
+            var body = Networker().createJSONtoMakeTransformer(name: ac.textFields![0].text!, team: ac.textFields![1].text!, strength: ac.textFields![2].text!, intelligence: ac.textFields![3].text!, speed: ac.textFields![4].text!, endurance: ac.textFields![5].text!, rank: ac.textFields![6].text!, courage: ac.textFields![7].text!, firepower: ac.textFields![8].text!, skill: ac.textFields![9].text!)
+            body["id"] = vm.id
+            
+            Networker().updateTransformer(transformer: body) { [weak self] didUpdate in
+                if didUpdate {
+                    self?.setup()
+                }
+            }
+            
+            
+        }
+
+        ac.addAction(submitAction)
+
+        present(ac, animated: true)
+        
+        
     }
     
     func deleteTransformer(index: Int)  {
@@ -85,7 +142,7 @@ extension CurrentTransformersViewController: UITableViewDelegate, UITableViewDat
                    leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .normal,
                                         title: "Edit") { [weak self] (action, view, completionHandler) in
-                                            self?.editTransformer()
+            self?.editTransformer(index: indexPath.row)
                                             completionHandler(true)
         }
         action.backgroundColor = .systemBlue
