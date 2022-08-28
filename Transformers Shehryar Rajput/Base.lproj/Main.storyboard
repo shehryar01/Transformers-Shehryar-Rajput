@@ -101,10 +101,11 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6vs-Nf-a85">
                                         <rect key="frame" x="0.0" y="0.0" width="254" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <color key="backgroundColor" red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="0.60180995475113119" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="63v-Vl-ned"/>
                                         </constraints>
+                                        <color key="tintColor" systemColor="labelColor"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Current Transfomers"/>
                                         <connections>
@@ -113,10 +114,11 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1b-OJ-e8p">
                                         <rect key="frame" x="0.0" y="80" width="254" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <color key="backgroundColor" red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="0.7963800904977375" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="xPa-ar-dxP"/>
                                         </constraints>
+                                        <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Create Transformer"/>
                                         <connections>
@@ -125,10 +127,11 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0K-xY-hV1">
                                         <rect key="frame" x="0.0" y="160" width="254" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <color key="backgroundColor" red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="FBf-zf-CRp"/>
                                         </constraints>
+                                        <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Start War"/>
                                         <connections>
@@ -188,12 +191,6 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -64,7 +64,7 @@ class WarViewController: UIViewController {
             
             let zippedTransformers = zip(autobots,decepticons)
             
-            let (zipAutobots, zipDecepticons) = zippedTransformers.reduce(([], [])) { ($0.0 + [$1.0], $0.1 + [$1.1])}
+            var (zipAutobots, zipDecepticons) = zippedTransformers.reduce(([], [])) { ($0.0 + [$1.0], $0.1 + [$1.1])}
             
             var survivorAutobots = [Transformer]()
             var survivorDecepticon = [Transformer]()
@@ -89,19 +89,63 @@ class WarViewController: UIViewController {
                 
                 let val = BattleChecker().checkIfBothAreBoss(transformer1: autobot, transformer2: decepticon)
                 
-                guard val == false else {print("both are boss");break}
+                guard val == false else {
+                    print("both are boss")
+                    
+                    displayResults(winningTeam: "Everyone Is Dead", message: "Optimus Prime & Predaking fought, causing total destruction", survivors: [], winners: [])
+                    
+                    break
+                }
                 
                 let val2 = BattleChecker().checkIfThereIsABoss(transformer1: autobot, transformer2: decepticon)
                 
-                guard val2 == nil else {print("1 boss present");return}
+                guard val2 == nil else {
+                    
+                    print("1 boss present")
+                    
+                    if let val2 = val2 {
+                        
+                        if val2.team == "A" {
+                            
+                            print("auto win")
+                            
+//                            Networker().deleteTransformer(id: decepticon.id) { _ in
+//                            } // if you want to delete
+                            
+                            zipDecepticons.removeAll(where: {$0 == decepticon}) // kill the loser from the list
+                            autoTally += 1
+
+                        }else if val2.team == "D"{
+                            print("decepticon win")
+                            
+//                            Networker().deleteTransformer(id: autobot.id) { _ in
+//                            } // if you want to delete
+                            
+                            zipAutobots.removeAll(where: {$0 == autobot}) // kill the loser from the list
+                            decepTally += 1
+                        }
+                }
+                    break
+                }
                 
                 let winner = BattleChecker().checkWhoWinsInAFight(transformer1: autobot, transformer2: decepticon)
                 
                 if winner?.team == "A" {
                     print("auto win")
+                    
+//                    Networker().deleteTransformer(id: decepticon.id) { _ in
+//                    } // if you want to delete
+                    
+                    
+                    zipDecepticons.removeAll(where: {$0 == decepticon}) // kill the loser from the list
                     autoTally += 1
                 }else if winner?.team == "D"{
                     print("decepticon win")
+                    
+//                    Networker().deleteTransformer(id: autobot.id) { _ in
+//                    } // if you want to delete
+                    
+                    zipAutobots.removeAll(where: {$0 == autobot}) // kill the loser from the list
                     decepTally += 1
                 }else {
                     print("draw")
@@ -112,10 +156,10 @@ class WarViewController: UIViewController {
             
             if autoTally>decepTally {
                 print("Autobots WIN")
-                displayResults(winningTeam: "Winning Team (Autobots)", message: "s", survivors: survivorDecepticon, winners: zipAutobots)
+                displayResults(winningTeam: "Winning Team (Autobots)", message: "", survivors: survivorDecepticon, winners: zipAutobots)
             }else if decepTally>autoTally{
                 print("Decepticons WIN")
-                displayResults(winningTeam: "Winning Team (Decepticons)", message: "d", survivors: survivorAutobots, winners: zipDecepticons)
+                displayResults(winningTeam: "Winning Team (Decepticons)", message: "", survivors: survivorAutobots, winners: zipDecepticons)
 
             }
             
@@ -130,7 +174,7 @@ class WarViewController: UIViewController {
         var surv = ""
 
         for i in s {
-            surv.append("\(i.name) ")
+            surv.append("\n-\(i.name) ")
         }
 
         var winrs = ""
@@ -140,8 +184,9 @@ class WarViewController: UIViewController {
         }
 
         
-        outputwindow.text = "\n\(winningTeam): \(winrs)"
+        outputwindow.text = "\n\(winningTeam): \(winrs)\n"
         outputwindow.text.append("\n\(message)")
+        guard !surv.isEmpty && !winners.isEmpty else {return}
         outputwindow.text.append("\nSurvivors from losing team: \(surv)")
 
         
