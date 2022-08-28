@@ -80,18 +80,20 @@ class WarViewController: UIViewController {
                 }
             }
 
-            print("\nSurvivor autobots:",survivorAutobots.count,"\nSurvivor decepticons:", survivorDecepticon.count)
+            print("\nSurvivor autobots (unparticipating):",survivorAutobots.count,"\nSurvivor decepticons (unparticipating):", survivorDecepticon.count)
             
             
             for (autobot, decepticon) in zippedTransformers{
-                print(autobot.name, decepticon.name)
+                
+                print("now fighting->", autobot.name, decepticon.name)
+                
                 let val = BattleChecker().checkIfBothAreBoss(transformer1: autobot, transformer2: decepticon)
                 
-                guard val == false else {print("both boss");break}
+                guard val == false else {print("both are boss");break}
                 
                 let val2 = BattleChecker().checkIfThereIsABoss(transformer1: autobot, transformer2: decepticon)
                 
-                guard val2 == nil else {print("1 boss");return}
+                guard val2 == nil else {print("1 boss present");return}
                 
                 let winner = BattleChecker().checkWhoWinsInAFight(transformer1: autobot, transformer2: decepticon)
                 
@@ -110,15 +112,40 @@ class WarViewController: UIViewController {
             
             if autoTally>decepTally {
                 print("Autobots WIN")
+                displayResults(winningTeam: "Winning Team (Autobots)", message: "s", survivors: survivorDecepticon, winners: zipAutobots)
             }else if decepTally>autoTally{
                 print("Decepticons WIN")
-            }else {
-                print("TIE")
+                displayResults(winningTeam: "Winning Team (Decepticons)", message: "d", survivors: survivorAutobots, winners: zipDecepticons)
+
             }
             
 //            print("no boss")
             
         }
     }
+    
+    
+    func displayResults(winningTeam: String, message: String, survivors s: [Transformer], winners: [Transformer]){
+        
+        var surv = ""
+
+        for i in s {
+            surv.append("\(i.name) ")
+        }
+
+        var winrs = ""
+
+        for i in winners {
+            winrs.append("\n-\(i.name) ")
+        }
+
+        
+        outputwindow.text = "\n\(winningTeam): \(winrs)"
+        outputwindow.text.append("\n\(message)")
+        outputwindow.text.append("\nSurvivors from losing team: \(surv)")
+
+        
+    }
+    
 
 }
