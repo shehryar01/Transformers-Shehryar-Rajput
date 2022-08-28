@@ -17,4 +17,6 @@ enum VcNames: String {
     case createTransformers = "createtransformers"
     /// Transformer vc that shows transformers on server
     case currentTransformers = "currenttransformers"
+    /// war vc
+    case warPage = "warcontroller"
 }

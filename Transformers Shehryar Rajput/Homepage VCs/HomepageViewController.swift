@@ -18,19 +18,6 @@ class HomepageViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         setup()
-        Networker().getTransformers { transformers in
-
-            
-            Networker().getTransformerImages(transformers: transformers) { transformerModels in
-                
-                print("im here---", transformerModels.count)
-                
-                for i in transformerModels {
-                    print("->", i.transformer.name, i.transformer.id, i.teamImage, i)
-                }
-            }
-            
-        }
     }
     
     func setup() {
@@ -38,6 +25,7 @@ class HomepageViewController: UIViewController {
         currentTransformers.layer.cornerRadius = 20
         createTransformers.layer.cornerRadius = 20
         war.layer.cornerRadius = 20
+        
         
     }
     
@@ -60,6 +48,11 @@ class HomepageViewController: UIViewController {
     }
     
     @IBAction func startWar(_ sender: UIButton) {
+        
+        let vc = UIStoryboard.init(name: "Homepage", bundle: Bundle.main).instantiateViewController(withIdentifier: VcNames.warPage.rawValue)
+
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

@@ -28,16 +28,29 @@ class CurrentTransformersViewController: UIViewController {
     }
     
     func setup() {
+        
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.startAnimating()
+        tableView.addSubview(spinner)
+        
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.centerYAnchor.constraint(equalTo: tableView.centerYAnchor).isActive = true
+        spinner.centerXAnchor.constraint(equalTo: tableView.centerXAnchor).isActive = true
+        
+
         Networker().getTransformers { transformers in
             Networker().getTransformerImages(transformers: transformers) { [weak self] transformerModels in
                 self?.transformersTableVM = TransformerTableViewModelList(transformers: transformerModels)
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
+                    
+                    spinner.removeFromSuperview()
                 }
             }
         }
-
     }
+    
+    
     
 
 }
@@ -120,8 +133,11 @@ extension CurrentTransformersViewController: UITableViewDelegate, UITableViewDat
             
             
         }
+        
+        let dismiss = UIAlertAction(title: "Dismiss", style: .cancel)
 
         ac.addAction(submitAction)
+        ac.addAction(dismiss)
 
         present(ac, animated: true)
         

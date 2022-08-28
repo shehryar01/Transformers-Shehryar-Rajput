@@ -30,6 +30,7 @@
 		468485DB28BB873900544689 /* CurrentTransformersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468485DA28BB873900544689 /* CurrentTransformersTableViewCell.swift */; };
 		468485DE28BB8A5A00544689 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 468485DD28BB8A5A00544689 /* SwiftyJSON */; };
 		468485E028BB9B3F00544689 /* TransformerTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468485DF28BB9B3F00544689 /* TransformerTableViewModel.swift */; };
+		468485E328BBDA5300544689 /* WarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468485E228BBDA5300544689 /* WarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		468485D828BB871D00544689 /* CurrentTransformersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTransformersViewController.swift; sourceTree = "<group>"; };
 		468485DA28BB873900544689 /* CurrentTransformersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTransformersTableViewCell.swift; sourceTree = "<group>"; };
 		468485DF28BB9B3F00544689 /* TransformerTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformerTableViewModel.swift; sourceTree = "<group>"; };
+		468485E228BBDA5300544689 /* WarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +141,6 @@
 				4650764A28BAB44600C3E662 /* Homepage.storyboard */,
 				4650760F28BA083D00C3E662 /* LaunchScreen.storyboard */,
 				4650761228BA083D00C3E662 /* Info.plist */,
-				468485DA28BB873900544689 /* CurrentTransformersTableViewCell.swift */,
-				468485DF28BB9B3F00544689 /* TransformerTableViewModel.swift */,
 			);
 			path = "Transformers Shehryar Rajput";
 			sourceTree = "<group>";
@@ -189,8 +189,19 @@
 				4650764828BAB1FA00C3E662 /* HomepageViewController.swift */,
 				4650764E28BAB69500C3E662 /* CreateTransformerViewController.swift */,
 				468485D828BB871D00544689 /* CurrentTransformersViewController.swift */,
+				468485E228BBDA5300544689 /* WarViewController.swift */,
+				468485E128BBD7DC00544689 /* Transformers tableview */,
 			);
 			path = "Homepage VCs";
+			sourceTree = "<group>";
+		};
+		468485E128BBD7DC00544689 /* Transformers tableview */ = {
+			isa = PBXGroup;
+			children = (
+				468485DA28BB873900544689 /* CurrentTransformersTableViewCell.swift */,
+				468485DF28BB9B3F00544689 /* TransformerTableViewModel.swift */,
+			);
+			path = "Transformers tableview";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,6 +358,7 @@
 				4650763A28BA1CEC00C3E662 /* Transformer.swift in Sources */,
 				4650764128BAA38500C3E662 /* DefaultsHelper.swift in Sources */,
 				468485D928BB871D00544689 /* CurrentTransformersViewController.swift in Sources */,
+				468485E328BBDA5300544689 /* WarViewController.swift in Sources */,
 				4650763828BA160000C3E662 /* BattleChecker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
