@@ -242,45 +242,39 @@
                                     <color key="backgroundColor" systemColor="systemCyanColor"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="80" id="Lah-N6-iNR" customClass="CurrentTransformersTableViewCell" customModule="Transformers_Shehryar_Rajput" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="88.5" width="414" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="50" id="Lah-N6-iNR" customClass="CurrentTransformersTableViewCell" customModule="Transformers_Shehryar_Rajput" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="88.5" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lah-N6-iNR" id="kUY-yr-pER">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UrD-Ww-zPY">
-                                                    <rect key="frame" x="20" y="11" width="374" height="58"/>
+                                                    <rect key="frame" x="20" y="11" width="374" height="28"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fbu-G1-QrI">
-                                                            <rect key="frame" x="0.0" y="0.0" width="58" height="58"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="71" height="28"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="3" translatesAutoresizingMaskIntoConstraints="NO" id="ErS-5O-bsh">
-                                                            <rect key="frame" x="63" y="0.0" width="58.5" height="58"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="3" translatesAutoresizingMaskIntoConstraints="NO" id="UbU-zw-cvU">
-                                                            <rect key="frame" x="126.5" y="0.0" width="58" height="58"/>
+                                                            <rect key="frame" x="76" y="0.0" width="70.5" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="3" translatesAutoresizingMaskIntoConstraints="NO" id="run-YD-rzJ">
-                                                            <rect key="frame" x="189.5" y="0.0" width="58" height="58"/>
+                                                            <rect key="frame" x="151.5" y="0.0" width="71" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="3" translatesAutoresizingMaskIntoConstraints="NO" id="GvD-Eq-3Tc">
-                                                            <rect key="frame" x="252.5" y="0.0" width="58.5" height="58"/>
+                                                            <rect key="frame" x="227.5" y="0.0" width="70.5" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="3" translatesAutoresizingMaskIntoConstraints="NO" id="OgI-Bn-i7X">
-                                                            <rect key="frame" x="316" y="0.0" width="58" height="58"/>
+                                                            <rect key="frame" x="303" y="0.0" width="71" height="28"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -296,11 +290,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="courage" destination="9nh-mr-WqJ" id="eIR-jh-j1z"/>
-                                            <outlet property="overallRating" destination="UoA-Tb-1xA" id="tqd-ca-wpV"/>
-                                            <outlet property="rank" destination="7n6-yd-ahH" id="FEU-vG-c8F"/>
-                                            <outlet property="skill" destination="Pqa-D3-nVc" id="NxX-iZ-Jb5"/>
-                                            <outlet property="team" destination="85q-dG-DMp" id="cfC-gm-e5y"/>
+                                            <outlet property="courage" destination="GvD-Eq-3Tc" id="d3k-dx-2Mi"/>
+                                            <outlet property="overallRating" destination="UbU-zw-cvU" id="VVb-cx-Emj"/>
+                                            <outlet property="rank" destination="run-YD-rzJ" id="eY1-hf-ymw"/>
+                                            <outlet property="skill" destination="OgI-Bn-i7X" id="0TA-6D-XjB"/>
+                                            <outlet property="teamIcon" destination="fbu-G1-QrI" id="AYg-K1-RBS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -316,6 +310,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Transformers Created" id="6fL-9b-p4M"/>
+                    <connections>
+                        <outlet property="tableView" destination="GBs-y0-4D1" id="2OS-0s-iPc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="onl-12-E3g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

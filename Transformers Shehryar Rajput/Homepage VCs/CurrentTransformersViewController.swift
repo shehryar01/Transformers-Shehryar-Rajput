@@ -9,26 +9,63 @@ import UIKit
 
 class CurrentTransformersViewController: UIViewController {
 
-    @IBOutlet weak var team: UILabel!
-    @IBOutlet weak var overallRating: UILabel!
-    @IBOutlet weak var rank: UILabel!
-    @IBOutlet weak var courage: UILabel!
-    @IBOutlet weak var skill: UILabel!
+    var transformersTableVM: TransformerTableViewModelList!
+    
+
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = 50
+        
+    
+        setup()
+        
+    }
+    
+    func setup() {
+        Networker().getTransformers { transformers in
+            Networker().getTransformerImages(transformers: transformers) { [weak self] transformerModels in
+                self?.transformersTableVM = TransformerTableViewModelList(transformers: transformerModels)
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            }
+        }
+
     }
     
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+
+extension CurrentTransformersViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        transformersTableVM == nil ? 0 : transformersTableVM.numberOfRowsInSections(1)
     }
-    */
-
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CurrentTransformersTableViewCell
+        
+        let vm = transformersTableVM.transformerAt(indexPath.row)
+        
+        cell.setCell(transformerVM: vm)
+        
+        return cell
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    
+    
 }
