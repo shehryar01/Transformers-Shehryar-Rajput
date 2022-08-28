@@ -172,9 +172,32 @@ class Networker {
         myGroup.notify(queue: .global(qos: .background)) {
             completion(transformerTVmodel)
         }
-        
-        
     }
+    
+    
+    func deleteTransformer(id: String, completion: @escaping (Bool)->()) {
+
+        AF.request("https://transformers-api.firebaseapp.com/transformers/\(id)", method: .delete ,headers: [.authorization(bearerToken: DefaultsHelper.shared.retrieveValue(keyForSavedValue: "token", savedValueType: .String) as? String ?? String())]).validate().responseJSON { response in
+            print(response.debugDescription)
+            switch response.result {
+            case .success(_):
+                completion(true)
+            case .failure(let error):
+                print(error)
+                completion(false)
+            }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 

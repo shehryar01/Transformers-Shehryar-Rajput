@@ -66,6 +66,44 @@ extension CurrentTransformersViewController: UITableViewDelegate, UITableViewDat
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    // MARK: - Swipe
+    func editTransformer()  {
+        print("asdsaasdsadasd")
+    }
     
+    func deleteTransformer(index: Int)  {
+        let id = transformersTableVM.transformers[index].id
+        
+        Networker().deleteTransformer(id: id) {[weak self] didDelete in
+            if didDelete {
+                self?.setup()
+            }
+    }
+    }
+    
+    func tableView(_ tableView: UITableView,
+                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal,
+                                        title: "Edit") { [weak self] (action, view, completionHandler) in
+                                            self?.editTransformer()
+                                            completionHandler(true)
+        }
+        action.backgroundColor = .systemBlue
+        return UISwipeActionsConfiguration(actions: [action])
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView,
+                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .destructive,
+                                        title: "Delete") { [weak self] (action, view, completionHandler) in
+            self?.deleteTransformer(index: indexPath.row)
+                                            completionHandler(true)
+        }
+        action.backgroundColor = .systemRed
+        return UISwipeActionsConfiguration(actions: [action])
+        
+    }
     
 }
