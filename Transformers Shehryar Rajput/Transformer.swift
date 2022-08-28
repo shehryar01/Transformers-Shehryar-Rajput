@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import SwiftyJSON
+
+
 
 class Transformer: Comparable {
 
     
+    var id: String
     let team: String
     let name: String
     
@@ -23,8 +27,7 @@ class Transformer: Comparable {
     let skill: Int
     
     var team_icon: String
-    var id: Int
-    
+
     var overallRating : Int {
         strength + intelligence + speed + endurance + firepower
     }
@@ -37,7 +40,7 @@ class Transformer: Comparable {
          firepower: Int,
          skill: Int,
          team_icon: String,
-         id: Int) {
+         id: String) {
         
         self.team = team
         self.name = name
@@ -52,6 +55,24 @@ class Transformer: Comparable {
         self.team_icon = team_icon
         self.id = id
     }
+    
+    /// Used to create transformer via json object
+    init(json: JSON) {
+        
+        self.team = json["team"].stringValue
+        self.name = json["name"].stringValue
+        self.strength = json["strength"].intValue
+        self.intelligence = json["intelligence"].intValue
+        self.speed = json["speed"].intValue
+        self.endurance = json["endurance"].intValue
+        self.rank = json["rank"].intValue
+        self.courage = json["courage"].intValue
+        self.firepower = json["firepower"].intValue
+        self.skill = json["skill"].intValue
+        self.team_icon = json["team_icon"].stringValue
+        self.id = json["id"].stringValue
+    }
+    
     
     // MARK: - Comparing
     
