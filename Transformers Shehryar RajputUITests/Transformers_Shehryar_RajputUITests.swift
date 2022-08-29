@@ -7,6 +7,7 @@
 
 import XCTest
 
+
 class Transformers_Shehryar_RajputUITests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -26,26 +27,41 @@ class Transformers_Shehryar_RajputUITests: XCTestCase {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
+        
+
+        
+        
 
         let startitle = app.staticTexts["Start A New Game"]
         XCTAssertTrue(startitle.exists, "Start button present")
-        
+
         let loadtitle = app.staticTexts["Load Game"]
         XCTAssertTrue(loadtitle.exists, "Load button present")
         
-        let token = UserDefaults().object(forKey:"token")  as? String ?? String()
-        
+        let token = DefaultsHelper.shared.retrieveValue(keyForSavedValue: "token", savedValueType: .String)  as? String ?? String()
+
         if token != String() {
-            let button = app.buttons["Load Game"]
+            let button = app.buttons["loadgame"]
             XCTAssertTrue(loadtitle.exists, "token present, using load button")
             button.tap()
         }else {
-            
-            
-            
-            let button = app.buttons["Start A New Game"]
-            XCTAssertTrue(loadtitle.exists, "token not present, using start button")
+
+            let button = app.buttons["newgame"]
             button.tap()
+            let exp = expectation(description: "Get new token from server")
+            Networker().getNewToken() { token in
+                XCTAssertNotNil(token, "no")
+                DefaultsHelper.shared.saveValue(valueToSaveInDefaults: token!, keyForSavedValue: "token")
+                exp.fulfill()
+            }
+//            Networker().getNewToken2 { token in
+//                XCTAssertNotNil(token, "no")
+//                DefaultsHelper.shared.saveValue(valueToSaveInDefaults: token!, keyForSavedValue: "token")
+//                exp.fulfill()
+//            }
+            wait(for: [exp], timeout: 6)
+
+            
         }
         
         // Use XCTAssert and related functions to verify your tests produce the correct results.

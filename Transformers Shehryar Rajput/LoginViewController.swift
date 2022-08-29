@@ -17,15 +17,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var startGame: UIButton!
     @IBOutlet weak var loadGame: UIButton!
     
-    var test = [1,2,3]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        for i in test {
-            print(i)
-        }
         setup()
 
 
@@ -47,7 +43,7 @@ class LoginViewController: UIViewController {
     @IBAction func startGame(_ sender: UIButton) {
         
         
-        Networker().getNewToken(buttonToDisable: &startGame) { [weak self] token in
+        Networker().getNewToken(buttonToDisable: startGame as UIButton?) { [weak self] token in
             
             self?.startGame.setTitle("Start A New Game", for: .normal)
             self?.startGame.isEnabled = true

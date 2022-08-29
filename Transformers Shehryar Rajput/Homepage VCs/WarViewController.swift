@@ -61,7 +61,7 @@ class WarViewController: UIViewController {
             }
             
             // 1 of the transformers is empty
-            guard !strongSelf.autobots.isEmpty && strongSelf.decepticons.isEmpty else {
+            guard !strongSelf.autobots.isEmpty && !strongSelf.decepticons.isEmpty else {
                 strongSelf.displayResults(winningTeam: "", message: "Please create at least 1 transformer per faction, to start a war", survivors: [], winners: [])
                 return
             }
@@ -80,6 +80,27 @@ class WarViewController: UIViewController {
             let zippedTransformers = zip(strongSelf.autobots,strongSelf.decepticons)
             
             var (zipAutobots, zipDecepticons) = zippedTransformers.reduce(([], [])) { ($0.0 + [$1.0], $0.1 + [$1.1])}
+            
+            var unpAutobots = [Transformer]()
+            var unpDeceptiocons = [Transformer]()
+            
+            for i in strongSelf.autobots {
+                for j in zipAutobots {
+                    if i.id != j.id {
+                        print("not participation auto")
+                        unpAutobots.append(i)
+                    }
+                }
+            }
+            
+            for i in strongSelf.decepticons {
+                for j in zipDecepticons {
+                    if i.id != j.id {
+                        print("not participating deceptiocn")
+                        unpDeceptiocons.append(i)
+                    }
+                }
+            }
             
             var survivorAutobots = [Transformer]()
             var survivorDecepticon = [Transformer]()
@@ -126,8 +147,9 @@ class WarViewController: UIViewController {
                             
 //                            Networker().deleteTransformer(id: decepticon.id) { _ in
 //                            } // if you want to delete
-                            
-                            zipDecepticons.removeAll(where: {$0 == decepticon}) // kill the loser from the list
+                            let dIdx = zipDecepticons.firstIndex(where: {$0 == decepticon})
+                            zipDecepticons.remove(at: dIdx!)
+//                            zipDecepticons.removeAll(where: {$0 == decepticon}) // kill the loser from the list
                             autoTally += 1
 
                         }else if val2.team == "D"{
@@ -135,8 +157,9 @@ class WarViewController: UIViewController {
                             
 //                            Networker().deleteTransformer(id: autobot.id) { _ in
 //                            } // if you want to delete
-                            
-                            zipAutobots.removeAll(where: {$0 == autobot}) // kill the loser from the list
+                            let idx = zipAutobots.firstIndex(where: {$0 == autobot})
+                            zipAutobots.remove(at: idx!)
+//                            zipAutobots.removeAll(where: {$0 == autobot}) // kill the loser from the list
                             decepTally += 1
                         }
                 }
@@ -151,18 +174,28 @@ class WarViewController: UIViewController {
 //                    Networker().deleteTransformer(id: decepticon.id) { _ in
 //                    } // if you want to delete
                     
+                    let dIdx = zipDecepticons.firstIndex(where: {$0 == decepticon})
+                    zipDecepticons.remove(at: dIdx!)
                     
-                    zipDecepticons.removeAll(where: {$0 == decepticon}) // kill the loser from the list
+//                    zipDecepticons.removeAll(where: {$0 == decepticon}) // kill the loser from the list
                     autoTally += 1
                 }else if winner?.team == "D"{
                     print("decepticon win")
                     
 //                    Networker().deleteTransformer(id: autobot.id) { _ in
 //                    } // if you want to delete
-                    
-                    zipAutobots.removeAll(where: {$0 == autobot}) // kill the loser from the list
+                    let idx = zipAutobots.firstIndex(where: {$0 == autobot})
+                    zipAutobots.remove(at: idx!)
+//                    zipAutobots.removeAll(where: {$0 == autobot}) // kill the loser from the list
                     decepTally += 1
                 }else {
+                    let aIdx = zipAutobots.firstIndex(where: {$0 == autobot})
+                    zipAutobots.remove(at: aIdx!)
+                    
+                    let dIdx = zipDecepticons.firstIndex(where: {$0 == decepticon})
+                    zipDecepticons.remove(at: dIdx!)
+//                    zipAutobots.removeAll(where: {$0 == autobot}) // kill the loser from the list
+//                    zipDecepticons.removeAll(where: {$0 == decepticon}) // kill the loser from the list
                     print("draw")
                 }
             }
@@ -171,11 +204,17 @@ class WarViewController: UIViewController {
             
             if autoTally>decepTally {
                 print("Autobots WIN")
-                strongSelf.displayResults(winningTeam: "Winning Team (Autobots)", message: "", survivors: survivorDecepticon, winners: zipAutobots)
+                strongSelf.displayResults(winningTeam: "Winning Team (Autobots)", message: "", survivors: zipDecepticons + unpDeceptiocons, winners: zipAutobots + unpAutobots)
             }else if decepTally>autoTally{
                 print("Decepticons WIN")
-                strongSelf.displayResults(winningTeam: "Winning Team (Decepticons)", message: "", survivors: survivorAutobots, winners: zipDecepticons)
+                strongSelf.displayResults(winningTeam: "Winning Team (Decepticons)", message: "", survivors: zipAutobots + unpAutobots, winners: zipDecepticons + unpDeceptiocons)
 
+            }else if decepTally == autoTally {
+                
+                let a = zipAutobots + survivorAutobots + unpAutobots
+                let d = zipDecepticons + survivorDecepticon + unpDeceptiocons
+                
+                strongSelf.tie(message: "Game ended in a draw", autoLeft: a, decepLeft: d)
             }
             
             
@@ -206,5 +245,26 @@ class WarViewController: UIViewController {
         
     }
     
+    func tie(message: String, autoLeft aL: [Transformer], decepLeft dL: [Transformer]){
+        
+        var aLtxt = ""
 
+        for i in aL {
+            aLtxt.append("\n-\(i.name) ")
+        }
+        var dLtxt = ""
+
+        for i in dL {
+            dLtxt.append("\n-\(i.name) ")
+        }
+        outputwindow.text.append("\n\(message)")
+        outputwindow.text.append("\nRemaining autobots: \(aLtxt)\n")
+        outputwindow.text.append("\nRemaining decepticons: \(dLtxt)")
+
+        
+
+    }
+    
+    
+    
 }

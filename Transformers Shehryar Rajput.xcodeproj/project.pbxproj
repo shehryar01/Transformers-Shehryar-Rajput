@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4633DAA628BCE7E400B7330A /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650764428BAA56500C3E662 /* Networker.swift */; };
+		4633DAA728BCE7E800B7330A /* VcNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650764628BAAD9900C3E662 /* VcNames.swift */; };
+		4633DAA828BCE7ED00B7330A /* DefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650764028BAA38500C3E662 /* DefaultsHelper.swift */; };
+		4633DAA928BCE7F000B7330A /* Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650763928BA1CEC00C3E662 /* Transformer.swift */; };
+		4633DAAA28BCE7F700B7330A /* TransformerTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468485DF28BB9B3F00544689 /* TransformerTableViewModel.swift */; };
+		4633DAAD28BCE81200B7330A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4633DAAC28BCE81200B7330A /* Alamofire */; };
+		4633DAAF28BCE81500B7330A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 4633DAAE28BCE81500B7330A /* SwiftyJSON */; };
 		4650760528BA083600C3E662 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650760428BA083600C3E662 /* AppDelegate.swift */; };
 		4650760728BA083600C3E662 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650760628BA083600C3E662 /* SceneDelegate.swift */; };
 		4650760928BA083600C3E662 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650760828BA083600C3E662 /* LoginViewController.swift */; };
@@ -101,12 +108,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4633DAAF28BCE81500B7330A /* SwiftyJSON in Frameworks */,
+				4633DAAD28BCE81200B7330A /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4633DAAB28BCE81200B7330A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		465075F828BA083600C3E662 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +130,7 @@
 				4650761A28BA083D00C3E662 /* Transformers Shehryar RajputTests */,
 				4650762428BA083D00C3E662 /* Transformers Shehryar RajputUITests */,
 				4650760228BA083600C3E662 /* Products */,
+				4633DAAB28BCE81200B7330A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -130,9 +147,9 @@
 		4650760328BA083600C3E662 /* Transformers Shehryar Rajput */ = {
 			isa = PBXGroup;
 			children = (
+				4650760828BA083600C3E662 /* LoginViewController.swift */,
 				4650764328BAA43D00C3E662 /* App */,
 				4650764228BAA42900C3E662 /* Utilities */,
-				4650760828BA083600C3E662 /* LoginViewController.swift */,
 				4650763728BA160000C3E662 /* BattleChecker.swift */,
 				4650763928BA1CEC00C3E662 /* Transformer.swift */,
 				4650764D28BAB5F900C3E662 /* Homepage VCs */,
@@ -260,6 +277,10 @@
 				4650762328BA083D00C3E662 /* PBXTargetDependency */,
 			);
 			name = "Transformers Shehryar RajputUITests";
+			packageProductDependencies = (
+				4633DAAC28BCE81200B7330A /* Alamofire */,
+				4633DAAE28BCE81500B7330A /* SwiftyJSON */,
+			);
 			productName = "Transformers Shehryar RajputUITests";
 			productReference = 4650762128BA083D00C3E662 /* Transformers Shehryar RajputUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -375,6 +396,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4633DAAA28BCE7F700B7330A /* TransformerTableViewModel.swift in Sources */,
+				4633DAA928BCE7F000B7330A /* Transformer.swift in Sources */,
+				4633DAA828BCE7ED00B7330A /* DefaultsHelper.swift in Sources */,
+				4633DAA728BCE7E800B7330A /* VcNames.swift in Sources */,
+				4633DAA628BCE7E400B7330A /* Networker.swift in Sources */,
 				4650762828BA083D00C3E662 /* Transformers_Shehryar_RajputUITestsLaunchTests.swift in Sources */,
 				4650762628BA083D00C3E662 /* Transformers_Shehryar_RajputUITests.swift in Sources */,
 			);
@@ -739,6 +765,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4633DAAC28BCE81200B7330A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4650763B28BA488400C3E662 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		4633DAAE28BCE81500B7330A /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 468485DC28BB8A5A00544689 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
 		4650763C28BA488400C3E662 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4650763B28BA488400C3E662 /* XCRemoteSwiftPackageReference "Alamofire" */;
