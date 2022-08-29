@@ -3,6 +3,10 @@
 
 ### Building and Starting The Project
 
+**Requirements**
+1. Alamofire: https://github.com/Alamofire/Alamofire
+2. SwiftyJSON: https://github.com/SwiftyJSON/SwiftyJSON
+
 **Starting a New Game 🕹**
 
 1. Wait for SPM (Swift Package Manager) to download required packages
