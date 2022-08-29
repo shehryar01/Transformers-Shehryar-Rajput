@@ -17,13 +17,15 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var startGame: UIButton!
     @IBOutlet weak var loadGame: UIButton!
     
-    
+    var test = [1,2,3]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        
+        for i in test {
+            print(i)
+        }
         setup()
 
 
