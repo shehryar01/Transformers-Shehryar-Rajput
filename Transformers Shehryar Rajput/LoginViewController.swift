@@ -26,35 +26,6 @@ class LoginViewController: UIViewController {
         
         setup()
 
-//        let headers: HTTPHeaders = [.authorization(bearerToken: "token")]
-//        var token = "Data()"
-//
-//        DefaultsHelper.shared.retrieveSavedItemCount()
-//
-//
-//        AF.request("https://transformers-api.firebaseapp.com/allspark", method: .get)
-//            .response { handle in
-//                print(handle.data)
-//                print(String(data: handle.data!, encoding: .utf8))
-//                token = String(data: handle.data!, encoding: .utf8)!
-//
-//                DefaultsHelper.shared.saveValue(valueToSaveInDefaults: token, keyForSavedValue: "token")
-//                DefaultsHelper.shared.retrieveSavedItemCount()
-//
-//            }
-//
-//
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//            AF.request("https://transformers-api.firebaseapp.com/transformers", method: .get, headers: [.authorization(bearerToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0cmFuc2Zvcm1lcnNJZCI6Ii1OQVBKSUFkQ282SExReEhTQXFYIiwiaWF0IjoxNjYxNTIwMTMwfQ.w3N87I9V2x2eXkljB1tUuy0DaLqnfMZOTrk0qPsoG3Y")])
-//                .response { handle in
-//                    print(handle.data)
-//                    print(String(data: handle.data!, encoding: .utf8))
-//                }
-//        }
-        
-
-
 
     }
 

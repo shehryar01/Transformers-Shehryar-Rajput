@@ -6,7 +6,7 @@
 
 import Foundation
 
-
+/// Interface for userdefaults
 class DefaultsHelper{
     
     static var shared = DefaultsHelper()

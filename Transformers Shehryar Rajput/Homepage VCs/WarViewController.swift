@@ -36,45 +36,60 @@ class WarViewController: UIViewController {
         spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
 
-        Networker().getTransformers { [self] transformers in
+        Networker().getTransformers { [weak self] transformers in
             DispatchQueue.main.async {
                 spinner.removeFromSuperview()
+            }
+            
+            guard let strongSelf = self else {return}
+            
+            
+            // empty transformers
+            guard !transformers.isEmpty else {
+                self?.displayResults(winningTeam: "", message: "Please create transformers first, to start a war", survivors: [], winners: [])
+                return
             }
             
             for i in transformers {
                 if  i.team == "A" ||
                     i.team == "a" {
-                    autobots.append(i)
+                    strongSelf.autobots.append(i)
                 }else if  i.team == "D" ||
                         i.team == "d" {
-                    decepticons.append(i)
+                    strongSelf.decepticons.append(i)
                     }
             }
             
-            print("autobots", autobots, autobots.count)
-            print("decepticons", decepticons, decepticons.count)
+            // 1 of the transformers is empty
+            guard !strongSelf.autobots.isEmpty && strongSelf.decepticons.isEmpty else {
+                strongSelf.displayResults(winningTeam: "", message: "Please create at least 1 transformer per faction, to start a war", survivors: [], winners: [])
+                return
+            }
+            
+            print("autobots", strongSelf.autobots, strongSelf.autobots.count)
+            print("decepticons", strongSelf.decepticons, strongSelf.decepticons.count)
             
             
-            autobots = BattleChecker().sortByRank(transformers: autobots)
-            decepticons = BattleChecker().sortByRank(transformers: decepticons)
+            strongSelf.autobots = BattleChecker().sortByRank(transformers: strongSelf.autobots)
+            strongSelf.decepticons = BattleChecker().sortByRank(transformers: strongSelf.decepticons)
             
             
             var autoTally = 0
             var decepTally = 0
             
-            let zippedTransformers = zip(autobots,decepticons)
+            let zippedTransformers = zip(strongSelf.autobots,strongSelf.decepticons)
             
             var (zipAutobots, zipDecepticons) = zippedTransformers.reduce(([], [])) { ($0.0 + [$1.0], $0.1 + [$1.1])}
             
             var survivorAutobots = [Transformer]()
             var survivorDecepticon = [Transformer]()
             
-            for i in autobots {
+            for i in strongSelf.autobots {
                 if !zipAutobots.contains(i) {
                     survivorAutobots.append(i)
                 }
             }
-            for i in decepticons {
+            for i in strongSelf.decepticons {
                 if !zipDecepticons.contains(i) {
                     survivorDecepticon.append(i)
                 }
@@ -92,7 +107,7 @@ class WarViewController: UIViewController {
                 guard val == false else {
                     print("both are boss")
                     
-                    displayResults(winningTeam: "Everyone Is Dead", message: "Optimus Prime & Predaking fought, causing total destruction", survivors: [], winners: [])
+                    strongSelf.displayResults(winningTeam: "Everyone Is Dead", message: "Optimus Prime & Predaking fought, causing total destruction", survivors: [], winners: [])
                     
                     break
                 }
@@ -156,14 +171,13 @@ class WarViewController: UIViewController {
             
             if autoTally>decepTally {
                 print("Autobots WIN")
-                displayResults(winningTeam: "Winning Team (Autobots)", message: "", survivors: survivorDecepticon, winners: zipAutobots)
+                strongSelf.displayResults(winningTeam: "Winning Team (Autobots)", message: "", survivors: survivorDecepticon, winners: zipAutobots)
             }else if decepTally>autoTally{
                 print("Decepticons WIN")
-                displayResults(winningTeam: "Winning Team (Decepticons)", message: "", survivors: survivorAutobots, winners: zipDecepticons)
+                strongSelf.displayResults(winningTeam: "Winning Team (Decepticons)", message: "", survivors: survivorAutobots, winners: zipDecepticons)
 
             }
             
-//            print("no boss")
             
         }
     }

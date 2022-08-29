@@ -35,8 +35,8 @@ class Networker {
             }
     }
     
-    // MARK: - Creating transformer
-    
+    // MARK: - CRUD Transformer
+    /// Gives a JSON back with the stats given
     func createJSONtoMakeTransformer(name: String,
                                      team: String,
                                      strength: String,
@@ -62,23 +62,11 @@ class Networker {
             "firepower": Int(firepower),
             "skill": Int(skill),
         ]
-        
-        //        let body = [String : AnyHashable] = [
-        //              "id": Int(id) ?? 0,
-        //              "name": name,
-        //              "team": team,
-        //              "strength": Int(strength) ?? 0,
-        //              "intelligence": Int(intelligence) ?? 0,
-        //              "speed": Int(speed) ?? 0,
-        //              "endurance": Int(endurance) ?? 0,
-        //              "rank": Int(rank) ?? 0,
-        //              "courage": Int(courage) ?? 0,
-        //              "firepower": Int(firepower) ?? 0,
-        //              "skill": Int(skill) ?? 0,
-        //        ]
+
         return body
     }
     
+    /// Creates transformer on server via JSON supplied
     func createATransformer(transformer jsonData: [String: AnyHashable], completion: @escaping (Bool)->()) {
         
         
@@ -96,7 +84,7 @@ class Networker {
             }
     }
     
-    
+    /// Returns the array of transformers on server
     func getTransformers(completion: @escaping ([Transformer])->()) {
         
         var transformersOnServer = [Transformer]()
@@ -130,6 +118,7 @@ class Networker {
         }
     }
     
+    /// Retrieves image with the supplied transformer team image attribute
     func getTransformerImages(transformers: [Transformer], completion: @escaping ([TransformerTableViewModel])->()) {
         
         var transformerTVmodel = [TransformerTableViewModel]()
@@ -174,7 +163,7 @@ class Networker {
         }
     }
     
-    
+    /// Deletes transformer on server via the supplied ID
     func deleteTransformer(id: String, completion: @escaping (Bool)->()) {
 
         AF.request("https://transformers-api.firebaseapp.com/transformers/\(id)", method: .delete ,headers: [.authorization(bearerToken: DefaultsHelper.shared.retrieveValue(keyForSavedValue: "token", savedValueType: .String) as? String ?? String())]).validate().responseJSON { response in
@@ -189,7 +178,7 @@ class Networker {
         }
     }
     
-    
+    /// Updates transformer with the new JSON using supplied ID
     func updateTransformer(transformer jsonData: [String: AnyHashable], completion: @escaping (Bool)->()) {
         
         
@@ -214,50 +203,3 @@ class Networker {
     
     
 }
-
-
-
-//struct jdm: Codable {
-//    let id: String
-//    init(id: String) {
-//        self.id = id
-//    }
-//}
-//
-//struct kkk: Codable {
-//                                let  id: String
-//                                let  name: String
-//                                let  team: String
-//                                let  strength: String
-//                                let  intelligence: String
-//                                let  speed: String
-//                                let  endurance: String
-//                                let  rank: String
-//                                let  courage: String
-//                                let  firepower: String
-//                                let  skill: String
-//    
-//                                init(id: String,
-//                                 name: String,
-//                                 team: String,
-//                                 strength: String,
-//                                 intelligence: String,
-//                                 speed: String,
-//                                 endurance: String,
-//                                 rank: String,
-//                                 courage: String,
-//                                 firepower: String,
-//                                     skill: String) {
-//                                    self. id: ,
-//                                    self. name: ,
-//                                    self. team: ,
-//                                    self. strength: ,
-//                                    self. intelligence: ,
-//                                    self. speed: ,
-//                                    self. endurance: ,
-//                                    self. rank: ,
-//                                    self. courage: ,
-//                                    self. firepower: ,
-//                                    self. skill:
-//                                }
-//}

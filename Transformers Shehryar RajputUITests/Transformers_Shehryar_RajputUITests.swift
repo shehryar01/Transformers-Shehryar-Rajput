@@ -27,6 +27,27 @@ class Transformers_Shehryar_RajputUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
+        let startitle = app.staticTexts["Start A New Game"]
+        XCTAssertTrue(startitle.exists, "Start button present")
+        
+        let loadtitle = app.staticTexts["Load Game"]
+        XCTAssertTrue(loadtitle.exists, "Load button present")
+        
+        let token = UserDefaults().object(forKey:"token")  as? String ?? String()
+        
+        if token != String() {
+            let button = app.buttons["Load Game"]
+            XCTAssertTrue(loadtitle.exists, "token present, using load button")
+            button.tap()
+        }else {
+            
+            
+            
+            let button = app.buttons["Start A New Game"]
+            XCTAssertTrue(loadtitle.exists, "token not present, using start button")
+            button.tap()
+        }
+        
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
